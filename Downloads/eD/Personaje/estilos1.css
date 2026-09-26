@@ -1,0 +1,357 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0d0d12; /* Fondo de pesadilla (cuarto oscuro) */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* ---------------- LIENZO ---------------- */
+.lienzo-minecraft {
+    position: relative;
+    width: 600px;
+    height: 700px;
+    background: radial-gradient(circle at 50% 50%, #2a1111 0%, #0d0d12 60%);
+    box-shadow: inset 0 0 100px #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Factor de escala de Minecraft: 1 "Píxel MC" = 15px de pantalla */
+.personaje-mc {
+    position: relative;
+    width: 240px; /* 16 píxeles MC de ancho total (brazo+torso+brazo) */
+    height: 480px; /* 32 píxeles MC de alto total (cabeza+torso+piernas) */
+    /* Ligera animación de respiración robótica pesada */
+    animation: respiracionPesadilla 3s infinite alternate ease-in-out;
+}
+
+/* ---------------- TEXTURA DE MINECRAFT (Grid) ---------------- */
+.textura-pixeles {
+    position: absolute;
+    top: -30px; /* Cubre hasta las orejas */
+    left: -20px;
+    width: 280px;
+    height: 520px;
+    pointer-events: none;
+    z-index: 20;
+    /* Crea una cuadrícula de 15x15px para simular la resolución de una textura de Minecraft */
+    background-image: 
+        linear-gradient(rgba(0,0,0,0.15) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.15) 1px, transparent 1px);
+    background-size: 15px 15px;
+    mix-blend-mode: overlay;
+}
+
+/* ---------------- OREJAS ---------------- */
+.orejas {
+    position: absolute;
+    top: -30px;
+    left: 60px;
+    width: 120px;
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+}
+
+.oreja {
+    width: 30px; /* 2 píxeles MC */
+    height: 30px;
+    border: 2px solid #000;
+}
+
+.izq-metal { background: #555; border-bottom: none; }
+.der-roja { background: #8b1e1e; border-bottom: none; clip-path: polygon(0 0, 100% 0, 100% 100%, 30% 100%, 30% 60%, 0 60%); }
+
+/* ---------------- CABEZA (120x120px -> 8x8 Píxeles MC) ---------------- */
+.cabeza {
+    position: absolute;
+    top: 0;
+    left: 60px; /* Centrado sobre el torso */
+    width: 120px;
+    height: 120px;
+    background: #7a1515;
+    border: 2px solid #000;
+    box-shadow: inset -15px -15px 0 rgba(0,0,0,0.4), inset 15px 15px 0 rgba(255,255,255,0.1);
+    z-index: 10;
+}
+
+/* Daño blocky revelando el endoesqueleto craneal */
+.dano-craneo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 45px;
+    background: #333;
+    /* Clip-path en ángulos de 90 grados para parecer píxeles destruidos */
+    clip-path: polygon(0 0, 100% 0, 100% 33%, 66% 33%, 66% 66%, 33% 66%, 33% 100%, 0 100%);
+    border-right: 2px solid #000;
+    border-bottom: 2px solid #000;
+}
+
+/* Ojos */
+.ojos {
+    position: absolute;
+    top: 45px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 0 15px;
+}
+
+.ojo {
+    width: 30px;
+    height: 15px;
+    border: 2px solid #000;
+}
+
+.ojo.oscuro { background: #000; }
+.ojo.brillante { 
+    background: #222; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pupila-fuego {
+    width: 10px;
+    height: 10px;
+    background: #ffaa00;
+    box-shadow: 0 0 15px #ff5500, 0 0 30px #ff0000;
+    animation: parpadeoPesadilla 0.2s infinite alternate;
+}
+
+/* Hocico sobresaliente */
+.hocico {
+    position: absolute;
+    bottom: 0;
+    left: 15px;
+    width: 90px;
+    height: 45px;
+    background: #992222;
+    border: 2px solid #000;
+    border-bottom: none;
+    box-shadow: -5px -5px 0 rgba(0,0,0,0.3);
+}
+
+.nariz-pixel {
+    position: absolute;
+    top: -10px;
+    left: 30px;
+    width: 30px;
+    height: 15px;
+    background: #000;
+}
+
+.mandibula-pesadilla {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    background: #000;
+}
+
+.dientes-bloque {
+    width: 100%;
+    height: 10px;
+    /* Crea una fila de dientes separados de forma pixelada */
+    background: repeating-linear-gradient(90deg, #ddd, #ddd 10px, transparent 10px, transparent 20px);
+}
+.dientes-bloque.abajo {
+    position: absolute;
+    bottom: 0;
+    background: repeating-linear-gradient(90deg, transparent, transparent 10px, #ddd 10px, #ddd 20px);
+}
+
+/* ---------------- CONTENEDORES INFERIORES ---------------- */
+.cuerpo-contenedor {
+    position: absolute;
+    top: 120px;
+    width: 100%;
+    height: 180px;
+    display: flex;
+    z-index: 5;
+}
+
+/* ---------------- TORSO (120x180px -> 8x12 Píxeles MC) ---------------- */
+.torso {
+    width: 120px;
+    height: 180px;
+    background: #7a1515;
+    border: 2px solid #000;
+    position: relative;
+    box-shadow: inset -15px 0 0 rgba(0,0,0,0.4);
+}
+
+/* Pecho roto / Endoesqueleto */
+.pecho-roto {
+    position: absolute;
+    top: 30px;
+    left: 15px;
+    width: 90px;
+    height: 105px;
+    background: #1a1a1a;
+    border: 2px solid #000;
+    box-shadow: inset 0 10px 20px #000;
+    /* Recorte pixelado del traje */
+    clip-path: polygon(0 20%, 20% 20%, 20% 0, 80% 0, 80% 15%, 100% 15%, 100% 80%, 85% 80%, 85% 100%, 15% 100%, 15% 85%, 0 85%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.costilla-endo {
+    width: 80%;
+    height: 15px;
+    background: repeating-linear-gradient(90deg, #555, #555 15px, #333 15px, #333 30px);
+    border: 1px solid #000;
+}
+
+.cintura-rota {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    background: #472d1c; /* Color de los pantalones */
+    border-top: 2px solid #000;
+}
+
+/* ---------------- BRAZOS (60x180px -> 4x12 Píxeles MC) ---------------- */
+.brazo {
+    width: 60px;
+    height: 180px;
+    background: #333;
+    border: 2px solid #000;
+    position: relative;
+}
+
+.derecho { 
+    /* El brazo del garfio suele ser el derecho anatómicamente, a la izquierda del espectador */
+    transform-origin: top right;
+    transform: rotate(10deg); /* Postura zombi hacia afuera */
+}
+
+.izquierdo { 
+    transform-origin: top left;
+    transform: rotate(-10deg); 
+}
+
+.hombro-rojo {
+    width: 100%;
+    height: 60px;
+    background: #7a1515;
+    border-bottom: 2px solid #000;
+    box-shadow: inset -5px -5px 0 rgba(0,0,0,0.4);
+}
+
+.antebrazo-endo {
+    width: 100%;
+    height: 75px;
+    background: repeating-linear-gradient(0deg, #555, #555 15px, #444 15px, #444 30px);
+}
+
+/* Garfio hecho de bloques */
+.garfio-pixel {
+    position: absolute;
+    bottom: -15px;
+    left: 15px;
+    width: 30px;
+    height: 45px;
+    border: 15px solid #888;
+    border-top: none;
+    border-left: none;
+    background: transparent;
+}
+.garfio-pixel::after {
+    content: '';
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    width: 15px;
+    height: 15px;
+    background: #aaa;
+}
+
+.brazo-roto {
+    width: 100%;
+    height: 75px;
+    background: #7a1515;
+    /* Daño pixelado en el brazo rojo */
+    clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 70%, 70% 100%, 30% 100%, 30% 50%, 0 50%);
+    border-bottom: 2px solid #000;
+}
+
+.mano-endo {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 45px;
+    background: repeating-linear-gradient(90deg, #555, #555 15px, transparent 15px, transparent 30px);
+}
+
+/* ---------------- PIERNAS CONTENEDOR ---------------- */
+.piernas-contenedor {
+    position: absolute;
+    top: 300px;
+    left: 60px; /* Alineadas bajo el torso */
+    width: 120px;
+    height: 180px;
+    display: flex;
+}
+
+/* ---------------- PIERNAS (60x180px -> 4x12 Píxeles MC) ---------------- */
+.pierna {
+    width: 60px;
+    height: 180px;
+    background: #222; /* Base de endoesqueleto oscuro */
+    border: 2px solid #000;
+    border-top: none;
+}
+
+.pantalon-roto {
+    width: 100%;
+    height: 60px;
+    background: #472d1c;
+    /* Desgarro del pantalón blocky */
+    clip-path: polygon(0 0, 100% 0, 100% 60%, 70% 60%, 70% 100%, 40% 100%, 40% 80%, 0 80%);
+}
+
+.pierna-endo {
+    width: 100%;
+    height: 90px;
+    background: repeating-linear-gradient(0deg, #444, #444 15px, #333 15px, #333 30px);
+    border-left: 15px solid #222; /* Para simular el grosor del metal 3D en 2D */
+}
+
+.pie-metal {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    background: #555;
+    border-top: 2px solid #000;
+    /* Dedos robóticos */
+    background-image: repeating-linear-gradient(90deg, transparent, transparent 15px, #000 15px, #000 18px);
+}
+
+/* ---------------- ANIMACIONES ---------------- */
+@keyframes respiracionPesadilla {
+    0% { transform: scale(1) translateY(0); }
+    100% { transform: scale(1.02) translateY(-5px); }
+}
+
+@keyframes parpadeoPesadilla {
+    0% { opacity: 1; filter: brightness(1); }
+    100% { opacity: 0.5; filter: brightness(0.5); }
+}
