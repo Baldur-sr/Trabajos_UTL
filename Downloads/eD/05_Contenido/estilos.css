@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Zen+Loop:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Zen+Loop:ital@0;1&display=swap');
+
+@font-face {
+    font-family: "Bubbler";
+    src: url("../05_Contenido/font/BubblerOne-Regualr.ttf");
+}
+
+@font-face {
+    font-family: "Chilanka";
+    src: url("../05_Contenido/font/Chilanka-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Redes";
+    src: url("../05_Contenido/font/Grounde-Social.ttf");
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 16px;
+}
+
+body{
+    font-size: 0px;
+}
+
+/*--------------------------------------------------HEADER----------------------------------------------*/
+
+#inicio{
+    background-color: #000;
+    height: 94vh;
+}
+
+    #logo{
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        position: absolute;
+        top: 50px;
+        left: 10%;
+    }
+
+    #titulos{
+        /* width: 100%; */
+        background: url(../05_Contenido/image/fondo.jpg) no-repeat;
+        background-size: cover;
+        height: 100vh;
+
+        color: #fff;
+        text-align: center;
+        padding-top: 33vh;
+    }
+
+        h4{
+            font-family: 'Zen Loop', cursive;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            letter-spacing: 3px;
+        }
+
+        #tendencias{
+            font-family: Chilanka, cursive;
+            font-size: 4.5rem;
+            margin-bottom: 30px;
+
+        }
+
+        h3{
+            font-family: bubbler, cursive;
+            font-size: 1.2rem;
+            letter-spacing: 3px;
+        }
+
+/*--------------------------------------------------NAV----------------------------------------------*/
+
+nav{
+    height: 6vh;
+    background-color: rgb(0, 0, 0,.8);
+    text-align: right;
+}
+    a{
+        color: #fff;
+        font-family: 'Zen Loop', cursive;
+        font-size: 1.4rem;
+        text-decoration: none;
+        padding: 10px 2px;
+        display: inline-block;
+        margin-right: 25px;
+    }
+
+    a:hover{
+        font-weight: 600;
+    }
+
+ /*--------------------------------------------------Secciones----------------------------------------------*/
+
+ .contenedor{
+    text-align: center;
+    padding: 70px;
+ }
+
+ /*--------------------------------------------------Seccion news----------------------------------------------*/
+
+ #menu_news{
+    background-image: radial-gradient(circle at 50% -20.71%, #ff65b3 0, #ff59c0 10%, #ff4ecd 20%, #ff45d9 30%, #ff3fe6 40%, #f23cf2 50%, #d33ffe 60%, #ad46ff 70%, #7b4fff 80%, #0058ff 90%, #0060ff 100%);
+ }
+
+    .titulo{
+        font-family: Chilanka, cursive;
+        font-size: 4rem;
+        color: rgb(128, 0, 128);
+        text-shadow: 2px 2px 4px rgb(0, 0, 0);
+        margin-bottom: 30px;
+    }
+
+    figure, #concepto_clay{
+        width: 50%;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+        figure h3{
+            font-size: 1.5rem;
+            font-family: 'Perrmanent Market', cursive;
+            background-color: rgba(255, 255, 255, 0.5);
+            width: 250px;
+        }
+
+        #img_clay{
+            width: 60%;
+            margin: 20px;
+            float: left;
+        }
+
+        figcaption{
+            font-family: Bubbler, cursive;
+            font-size: 1.2rem;
+            color: #700202;
+            background-color: rgba(97, 232, 214, 0.5);
+            text-align: justify;
+            padding: 10px;
+        }
+
+    fieldset{
+        width: 90%;
+        margin: 0 auto;
+        background-color: #3228c5;
+        font-family: 'Permanent Marker', cursive;
+        font-size: 1rem;
+        padding: 25px;
+        border-radius: 20px;
+        box-shadow: 20px 20px 10px #770225;
+    }
+    
+        legend{
+            color:rgb(248, 4, 4);
+            background-color: rgb(255, 255, 2);
+            font-size: 1.4rem;
+            padding: 2px 10px;
+            border-radius: 10px;
+            text-shadow: 2px 2px 4px #ad46ff;
+            box-shadow: 10px 10px 5px #770225;
+        }
+
+        .material-symbols-outlined{
+            color:rgb(2, 175, 255);
+            font-size: 4rem;
+        }
+
+        p{
+            text-align: justify;    
+        }
+
+            p::first-letter{
+                font-size: 2.5rem;
+                float: left;
+                margin-right: 5px;
+            }
+
+            p span{
+                font-weight: bold;
+                font-size: 1.5rem;
+                font-family: Bubbler, cursive;
+                text-shadow: 2px 2px 4px #770225;
+            }
+
+            ul{
+                width: 40%;
+                text-align: left;
+                margin: 0 auto;
+            }
+
+                ol{
+                    width: 80%;
+                    margin: 0 auto;
+                }
+
+    #tabla{
+        font-size: 1rem;
+        font-family: Chilaka, cursive;
+        border-collapse: collapse;
+        width: 50%;
+        margin: 0 auto;
+        margin-top: 40px;
+    }
+
+    td, th{
+        border: 1px solid #ff45d9;
+    }
+
+    th{
+        background-color: #a98ff8;
+        color: black;
+    }
+
+    tr:nth-child(even){
+        background-color: cornflowerblue;
+    }
+
+    tr:nth-child(odd){
+        background-color: darkviolet;
+    }
+
+    tr:hover{
+        background-color: slateblue;
+    }
