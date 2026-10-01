@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+}
+
+header {
+    width: 100%;
+    flex: 2.5;
+    background-color: #168ee5;
+    position: relative;
+}
+
+.verde {
+    width: 50%;
+    height: 40%;
+    background-color: #00a957;
+    position: absolute;
+    right: 0;
+    bottom: -30px;
+}
+
+nav.general {
+    width: 100%;
+    flex: 1;
+    background-color: white;
+}
+
+
+#principal {
+    width: 100%;
+    flex: 3.5;
+    background-color: #f5d51a;
+    display: flex;
+    gap: 2%;
+    padding: 2%;
+}
+
+article {
+    background-color: blueviolet;
+}
+
+#principal article {
+    flex: 1;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    background-color: #f07800;
+}
+
+#principal .borde {
+    width: 100%;
+    height: 100%;
+    background-color: #f07800;
+    border: none;
+}
+
+#distinto {
+    box-shadow: none;
+}
+
+#secundario {
+    width: 100%;
+    flex: 4;
+    display: flex;
+    background-color: white;
+    padding: 2% 0;
+    gap: 2%;
+}
+
+#secundario article {
+    flex: 3;
+    height: 100%;
+    margin: 0;
+    background-color: #91d9e8;
+    border: none;
+    border-radius: 0;
+}
+
+.verde2 {
+    flex: 1;
+    height: 100%;
+    background-color: #8bdc38;
+    border-radius: 0;
+}
+
+footer.general {
+    width: 100%;
+    flex: 0.5;
+    background-color: #168ee5;
+    border: none;
+}
