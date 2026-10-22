@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Ricardo Posada">
+    <meta name="description" content="Portafolio personal de proyectos, hobbies y contacto.">
+    <meta name="keywords" content="Portafolio, Estudiante, Desarrollo, Web, Bootstrap, HTML5 Semántico">
+    
+    <link rel="shortcut icon" href="iconos/Jotaro as discord.ico" type="image/x-icon">
+    <title>Mi Portafolio Personal</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <link rel="stylesheet" href="CSS/estilos.css">
+</head>
+<body>
+
+    <!-- NAV -->
+    <header class="navbar navbar-expand-lg bg-dark navbar-dark sticky-top py-2">
+        <nav class="container" aria-label="Navegación principal">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img id="icono-sitio" src="iconos/Jotaro as discord.ico" type="image/x-icon" alt="Icono de Mi Sitio"> Mi Sitio
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNavegacion" aria-controls="menuNavegacion" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <section class="collapse navbar-collapse" id="menuNavegacion">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link active" href="index.html">Inicio</a>
+                    <a class="nav-link" href="#sobre-mi">Sobre mí</a>
+                    <a class="nav-link" href="#hobbies">Hobbies</a>
+                    <a class="nav-link" href="#proyectos">Proyectos</a>
+                    <a class="nav-link text-warning" href="contacto.html">Contacto</a>
+                </div>
+            </section>
+        </nav>
+    </header>
+
+    <!-- SECCIÓN 1: Sobre mí -->
+    <section id="sobre-mi" class="container py-5 my-3">
+        <div class="row align-items-center">
+            <figure class="col-lg-5 col-md-10 offset-md-1 offset-lg-0 text-center m-0">
+                <img src="imagenes/Retrato.png" alt="Mi foto" class="img-fluid rounded-circle border border-3 border-secondary shadow" style="max-width: 280px;">
+            </figure>
+            
+            <article class="col-lg-7 col-md-10 offset-md-1 offset-lg-0 mt-4 mt-lg-0">
+                <header>
+                    <h1 class="display-5 fw-bold titulo-seccion">Hola, soy Ricardo</h1>
+                </header>
+                <p class="fs-5">Estudiante de universidad con pasión por el desarrollo de software. Me gusta aprender nuevas tecnologías y enfrentar retos de programación.</p>
+                
+                <p>
+                    <!-- Botón corregido a btn-dark para coincidir con la captura -->
+                    <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#masInfo" aria-expanded="false" aria-controls="masInfo">
+                        Leer más sobre mi perfil...
+                    </button>
+                </p>
+                
+                <!-- Uso de aside para contenido complementario (Collapse) -->
+                <aside class="collapse" id="masInfo">
+                    <section class="card card-body bg-light border-secondary">
+                        Actualmente estoy cursando mi carrera y desarrollando habilidades en lenguajes como Java, Kotlin y tecnologías web como HTML, CSS y Bootstrap. Mi objetivo es crear aplicaciones útiles y eficientes.
+                    </section>
+                </aside>
+            </article>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 2: Hobbies -->
+    <section id="hobbies" class="bg-secondary text-white py-5">
+        <div class="container text-center">
+            <header>
+                <h2 class="titulo-seccion mb-4">Mis Gustos y Pasatiempos</h2>
+            </header>
+            
+            <div class="row justify-content-center">
+                <article class="col-md-5 mb-4">
+                    <header>
+                        <h4><i class="bi bi-controller"></i> Videojuegos</h4>
+                    </header>
+                    <p>Un pequeño clip de mis partidas favoritas.</p>
+                    <figure class="m-0">
+                        <video src="media/Video Project 2.mp4" controls class="w-100 rounded shadow-sm"></video>
+                    </figure>
+                </article>
+                
+                <article class="col-md-5 mb-4">
+                    <header>
+                        <h4><i class="bi bi-music-note-beamed"></i> Música</h4>
+                    </header>
+                    <p>La canción que escucho mientras programo.</p>
+                    <figure class="m-0">
+                        <audio src="media/ex33.mpeg" controls class="w-100 mt-4"></audio>
+                    </figure>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 3: Proyectos -->
+    <section id="proyectos" class="container py-5">
+        <header>
+            <h2 class="titulo-seccion text-center mb-5">Proyectos Académicos</h2>
+        </header>
+        
+        <div class="row">
+            <!-- Proyecto 1 -->
+            <div class="col-md-4 mb-4">
+                <article class="card h-100 shadow-sm">
+                    <figure class="m-0">
+                        <img src="media/Kot.png" class="card-img-top" alt="App Android" style="height: 180px; object-fit: cover;">
+                    </figure>
+                    <section class="card-body">
+                        <h5 class="card-title fw-bold">App Móvil</h5>
+                        <p class="card-text">Desarrollo de interfaz móvil usando Kotlin.</p>
+                    </section>
+                    <footer class="card-footer bg-white border-0 text-center pb-3">
+                        <button type="button" class="btn btn-sm btn-dark" data-bs-toggle="modal" data-bs-target="#modalProyecto1">
+                            <i class="bi bi-info-circle"></i> Ver detalles
+                        </button>
+                    </footer>
+                </article>
+            </div>
+
+            <!-- Proyecto 2 -->
+            <div class="col-md-4 mb-4">
+                <article class="card h-100 shadow-sm">
+                    <figure class="m-0">
+                        <img src="media/wor.png" class="card-img-top" alt="Base de datos" style="height: 180px; object-fit: cover;">
+                    </figure>
+                    <section class="card-body">
+                        <h5 class="card-title fw-bold">Sistema Gestor</h5>
+                        <p class="card-text">Diseño de base de datos relacional y queries en MySQL.</p>
+                    </section>
+                    <footer class="card-footer bg-white border-0 text-center pb-3">
+                        <button type="button" class="btn btn-sm btn-dark" data-bs-toggle="modal" data-bs-target="#modalProyecto2">
+                            <i class="bi bi-info-circle"></i> Ver detalles
+                        </button>
+                    </footer>
+                </article>
+            </div>
+
+            <!-- Proyecto 3 -->
+            <div class="col-md-4 mb-4">
+                <article class="card h-100 shadow-sm">
+                    <figure class="m-0">
+                        <img src="media/vis.png" class="card-img-top" alt="Web responsive" style="height: 180px; object-fit: cover;">
+                    </figure>
+                    <section class="card-body">
+                        <h5 class="card-title fw-bold">Sitio Web</h5>
+                        <p class="card-text">Estructura semántica utilizando HTML5, CSS y Bootstrap.</p>
+                    </section>
+                    <footer class="card-footer bg-white border-0 text-center pb-3">
+                        <button type="button" class="btn btn-sm btn-dark" data-bs-toggle="modal" data-bs-target="#modalProyecto3">
+                            <i class="bi bi-info-circle"></i> Ver detalles
+                        </button>
+                    </footer>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ZONA DE MODALES -->
+    
+    <!-- Modal Proyecto 1 -->
+    <section class="modal fade" id="modalProyecto1" tabindex="-1" aria-labelledby="modalProyecto1Label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <article class="modal-content">
+                <header class="modal-header bg-dark text-white">
+                    <h5 class="modal-title" id="modalProyecto1Label">Detalles: App Móvil</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </header>
+                <section class="modal-body text-center">
+                    <p>Este proyecto consiste en una aplicación móvil desarrollada en <strong>Android Studio</strong> utilizando <strong>Kotlin</strong>. Se enfoca en la creación de una interfaz de usuario dinámica y responsiva.</p>
+                    <a href="https://github.com/Baldur-sr/Trabajos_UTL" target="_blank" class="btn btn-outline-dark mt-2"><i class="bi bi-github"></i> Ir al repositorio</a>
+                </section>
+                <footer class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </footer>
+            </article>
+        </div>
+    </section>
+
+    <!-- Modal Proyecto 2 -->
+    <section class="modal fade" id="modalProyecto2" tabindex="-1" aria-labelledby="modalProyecto2Label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <article class="modal-content">
+                <header class="modal-header bg-dark text-white">
+                    <h5 class="modal-title" id="modalProyecto2Label">Detalles: Sistema Gestor</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </header>
+                <section class="modal-body text-center">
+                    <p>Diseño e implementación de una base de datos relacional. Se utilizaron sentencias <strong>SQL</strong> avanzadas y <strong>MySQL Workbench</strong> para la gestión de la información de un sistema simulado.</p>
+                    <a href="https://github.com/Baldur-sr/Trabajos_UTL" target="_blank" class="btn btn-outline-dark mt-2"><i class="bi bi-github"></i> Ir al repositorio</a>
+                </section>
+                <footer class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </footer>
+            </article>
+        </div>
+    </section>
+
+    <!-- Modal Proyecto 3 -->
+    <section class="modal fade" id="modalProyecto3" tabindex="-1" aria-labelledby="modalProyecto3Label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <article class="modal-content">
+                <header class="modal-header bg-dark text-white">
+                    <h5 class="modal-title" id="modalProyecto3Label">Detalles: Sitio Web</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </header>
+                <section class="modal-body text-center">
+                    <p>Desarrollo de este mismo portafolio web aplicando estructura semántica de <strong>HTML5</strong>, diseño responsivo con <strong>Bootstrap</strong> y estilos personalizados en <strong>CSS3</strong>.</p>
+                    <a href="https://github.com/Baldur-sr/Trabajos_UTL" target="_blank" class="btn btn-outline-dark mt-2"><i class="bi bi-github"></i> Ir al repositorio</a>
+                </section>
+                <footer class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </footer>
+            </article>
+        </div>
+    </section>
+
+    <!-- FOOTER GENERAL -->
+    <footer class="bg-dark text-white text-center py-3 mt-auto">
+        <section class="container">
+            <p class="mb-0">© 2026 Ricardo Tadeo Posada Cárdenas. Proyecto Universitario.</p>
+            <nav class="mt-2" aria-label="Redes sociales">
+                <a href="https://www.facebook.com/sinkfz.deimos" class="text-white me-3"><i class="bi bi-facebook"></i></a>
+                <a href="https://www.instagram.com/baldur_posada/?hl=en" class="text-white me-3"><i class="bi bi-instagram"></i></a>
+                <a href="https://github.com/Baldur-sr" target="_blank" class="text-white"><i class="bi bi-github"></i></a>
+            </nav>
+        </section>
+    </footer>
+
+    <!-- AQUÍ ESTÁ LA SOLUCIÓN MÁGICA: El JS de Bootstrap cargado desde la nube -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
